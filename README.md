@@ -11,7 +11,7 @@
 
 注意：windows盘符目录需要修改 D: -> /cygdrive/D
 目前支持 windows -> linux
-        linux -> linux
+        windows -> windows
 ```shell
 GLOBAL OPTIONS:
    --ip value, -I value      远程主机的ip
@@ -21,8 +21,11 @@ GLOBAL OPTIONS:
    --help, -h                show help
 
 
+## windows -> linux
 go run main.go --ip 192.168.110.94 --src /cygdrive/D/go-project/frisbee-officer-backend-GVA/server/uploads/file/ --dist /root/rsfile --module test
 go run main.go -I 192.168.110.94 -S /cygdrive/D/go-project/frisbee-officer-backend-GVA/server/uploads/file/ -D /root/rsfile -M test
+## windows -> windows
+go run main.go -I 192.168.110.94 -S /cygdrive/D/go-project/frisbee-officer-backend-GVA/server/uploads/file/ -D /D/rsfile
 ```
 
 ## rsync下载地址
@@ -38,12 +41,17 @@ rsyncd.conf是启动的配置文件
 
 运行rsync server `rsync.exe --config=../../rsyncd.conf --daemon --no-detach`
 
-运行client端 `>rsync -avz --progress /cygdrive/D/go-project/frisbee-officer-backend-GVA/server/uploads/file/ 192.168.110.94::test`
+运行client端 `>rsync -avz --progress /cygdrive/D/go-project/frisbee-officer-backend-GVA/server/uploads/file/ 192.168.110.94::test/D/rsfile`
 
 注意：D:需要使用 /cygdrive/D 替换
 
-## 使用参考
+## rsync使用参考
 https://www.ruanyifeng.com/blog/2020/08/rsync.html
+
+## rsyncd.conf example
+[rsyncd-linux.conf](rsyncd-linux.conf)
+
+[rsyncd-windows.conf](rsyncd-windows.conf)
 
 ## Linux Server
 <h3>Introduction</h3>
