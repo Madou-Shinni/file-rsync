@@ -4,7 +4,7 @@
 
 
 ## install
-`go get -u github.com/Madou-Shinni/file-rsync`
+`git clone github.com/Madou-Shinni/file-rsync.git`
 
 ## 快速开始
 

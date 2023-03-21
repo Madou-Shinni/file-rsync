@@ -82,7 +82,6 @@ func Synchronization(ip, src, dist, module string) {
 	//cmd := exec.Command("rsync", "-avz", "--progress", src, ip+"::test"+dist)
 	cmd := exec.Command("rsync", "-avz", "--progress", src, ip+"::"+module+dist)
 	output, err := cmd.CombinedOutput()
-	fmt.Println(string(output))
 	if err != nil {
 		fmt.Printf("rsync error: %v\n%s", err, output)
 		// 退出程序
